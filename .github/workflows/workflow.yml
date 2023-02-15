@@ -11,5 +11,6 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v3
+      - run: npm install jest
       - run: make test
       - run: make lint
