@@ -1,19 +1,18 @@
 name: check
 on: push
-  jobs: 
-    build:
-      runs-on: ${{ matrix.os }}
-      strategy:
-        matrix: 
-          os: [ubuntu-latest, macos-latest, windows-latest]
-      steps:
-        - uses: actions/checkout@v3
-        - run: make setup
-        - run: make start
-    test:
-      needs: build
-      steps:
-        - uses: actions/checkout@v3
-        - run: make test
-        - run: make lint
-
+jobs: 
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - run: make setup
+      - run: make start
+  test:
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - run: make test
+      - run: make lint
