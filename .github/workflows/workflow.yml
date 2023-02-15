@@ -6,7 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make setup
-      - run: make start
   test:
     runs-on: ubuntu-latest
     needs: build
