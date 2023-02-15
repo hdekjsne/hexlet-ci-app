@@ -11,6 +11,7 @@ jobs:
       - run: make setup
       - run: make start
   test:
+    runs-on: ${{ matrix.os }}
     needs: build
     steps:
       - uses: actions/checkout@v3
